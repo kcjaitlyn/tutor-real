@@ -18,7 +18,7 @@
                 <div class="title-box">
                     <div class="title">
                         <div class="wel-1-bg"></div>
-                        <a href="#"></a><span>구직활동지원금</span></a>
+                        <span>구직활동지원금</span>
                     </div>
                     <h2>#취준할_돈은_땅에서_솟나요</h2>
                 </div>
@@ -204,6 +204,16 @@
             $('html,body').animate({scrollTop:0},600);
         });
     }); 
+
+    <!--앵커 스크롤 부드럽게-->
+
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 400);
+    });
     </script>
 
 {%endblock content%}    
