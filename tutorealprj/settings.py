@@ -81,16 +81,9 @@ WSGI_APPLICATION = 'tutorealprj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',    
-        'NAME': config['DATABASE']['NAME'],                  
-        'USER': config['DATABASE']['USER'],                          
-        'PASSWORD': config['DATABASE']['PASSWORD'],                  
-        'HOST': config['DATABASE']['HOST'],                     
-        'PORT': config['DATABASE']['PORT'], 
-        'options': {
-            'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
-        } 
-        'CONN_MAX_AGE' :500,
+        'ENGINE': 'django.db.backends.sqlite3',    
+        'NAME': BASE_DIR / 'db.sqlite3',                  
+        'CONN_MAX_AGE' : 500,
     }
     
 }
