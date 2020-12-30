@@ -129,4 +129,4 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressManifestSaticFilesStorage'
 
-djano_heroku.settings(locals())
+django_heroku.settings(locals())
