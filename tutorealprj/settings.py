@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import djahgo_heroku
 from pathlib import Path
 import os
 import configparser
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'tutorealprj.urls'
@@ -90,6 +90,7 @@ DATABASES = {
         'options': {
             'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
         } 
+        'CONN_MAX_AGE' :500,
     }
     
 }
@@ -132,3 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressManifestSaticFilesStorage'
+
+djano_heroku.settings(locals())
